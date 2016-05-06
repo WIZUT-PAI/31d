@@ -1,9 +1,9 @@
 AppBundle\Entity\Parcel:
     properties:
         weight:
-             -NotBlank: ~
-             -NotNull: ~
-             -Range:
+             - NotBlank: ~
+             - NotNull: ~
+             - Range:
                  min: 0.01
                  max: 9999
                  minMessage: 'The weight value must be greater then 0.01'
@@ -19,14 +19,14 @@ AppBundle\Entity\ParcelOrder:
         tracking:
             - Choice: [true, false]
         parcel:
-            -NotBlank: ~
-            -NotNull: ~
+            - NotBlank: ~
+            - NotNull: ~
         sender:
-            -NotBlank: ~
-            -NotNull: ~
+            - NotBlank: ~
+            - NotNull: ~
         receiver:
-            -NotBlank: ~
-            -NotNull: ~
+            - NotBlank: ~
+            - NotNull: ~
         
 AppBundle\Entity\AddresData:
     properties:

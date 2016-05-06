@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Model\PostmanInterface;
 
 /**
  * Postman
@@ -12,7 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="postman")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostmanRepository")
  */
-class Postman extends BaseUser
+class Postman extends BaseUser implements PostmanInterface
 {
     /**
      * @ORM\Id

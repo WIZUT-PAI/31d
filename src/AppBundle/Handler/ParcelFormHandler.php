@@ -35,8 +35,9 @@
 		
 		private function processForm(ParcelInterface $parcel, array $parameters, $method = "PUT")
 		{
-			$form = $this->formFactory->create($this->formType, $parcel,	array('method' => $method));
+			$form = $this->formFactory->create($this->formType, $parcel,	array('method' => $method));			
 			$form->submit($parameters, 'PATCH' !== $method);
+			var_dump($parameters);
 			if ($form->isValid()) 
 			{
 				$note = $form->getData();

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Model\ParcelInterface;
 
 /**
  * Parcel
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="parcel")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ParcelRepository")
  */
-class Parcel
+class Parcel implements ParcelInterface
 {
     /**
      * @var int
