@@ -14,6 +14,7 @@
 		private $repository;
 		private $formFactory;
 		private $formType;
+		
 		public function __construct(ObjectManager $om, $entityClass, FormFactoryInterface $formFactory, $formType)
 		{
 			$this->entityClass = $entityClass;
@@ -37,7 +38,7 @@
 		{
 			$form = $this->formFactory->create($this->formType, $parcel,	array('method' => $method));			
 			$form->submit($parameters, 'PATCH' !== $method);
-			var_dump($parameters);
+			
 			if ($form->isValid()) 
 			{
 				$note = $form->getData();

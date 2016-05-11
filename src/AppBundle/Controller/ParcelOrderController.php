@@ -12,15 +12,15 @@ class ParcelOrderController extends FOSRestController
 	{
 		try 
 		{
-			$newParcel = $this->container->get('parcel_form.handler')->post($request->request->get('parcel'));
+			/*$newParcel = $this->container->get('parcel_form.handler')->post($request->request->get('parcel'));
 			$newSender = $this->container->get('addressdata_form.handler')->post($request->request->get('sender'));
 			$newReceiver = $this->container->get('addressdata_form.handler')->post($request->request->get('receiver'));
 			$newParcelorder = $this->container->get('parcelorder_form.handler')->post($request->request->all());
 			$routeOptions = array('id' => $newParcelorder->getId(),'_format' => $request->get('_format'));
-			
+			*/
 			$this->container->get('parcelorder_emailsender.handler')->sendEmail($request->request->all() );
 			
-			return $this->routeRedirectView('api_1_get_parcel', $routeOptions, Response::HTTP_CREATED);
+			return new Response(""); //$this->routeRedirectView('api_1_get_parcel', $routeOptions, Response::HTTP_CREATED);
 		} 
 		catch (InvalidFormException $exception) 
 		{
