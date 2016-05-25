@@ -8,4 +8,6 @@ Interface ParcelInterface
 	public function getWeight();
 	public function setNote($note);
 	public function getNote();
+	public function setParcelHash($parcelHash);
+	public function getParcelHash();
 }

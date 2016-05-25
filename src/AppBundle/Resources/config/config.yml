@@ -1,10 +1,2 @@
 imports:
     - { resource: services.yml }
-    
-fos_user:
-    db_driver: orm 
-    firewall_name: api
-    user_class: AppBundle\Entity\Postman
-    registration:
-        form:
-            type: AppBundle\Form\PostmanType

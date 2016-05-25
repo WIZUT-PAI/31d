@@ -19,7 +19,9 @@ framework:
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
-    #serializer:      { enable_annotations: true }
+    serializer:
+        enabled: true
+
     templating:
         engines: ['twig']
     default_locale:  "%locale%"
@@ -74,3 +76,7 @@ fos_rest:
     routing_loader:
         default_format: json
         include_format: false
+fos_user:
+    db_driver: orm
+    firewall_name: api
+    user_class: AppBundle\Entity\User

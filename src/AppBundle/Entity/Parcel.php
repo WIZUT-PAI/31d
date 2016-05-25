@@ -29,13 +29,19 @@ class Parcel implements ParcelInterface
      */
     private $weight;
 
+    /*
+     * @var guid
+     *
+     * @ORM\Column(name="parcel_hash", type="guid", unique=true)
+     */
+    private $parcelHash;
+
     /**
      * @var string
      *
-     * @ORM\Column(name="note", type="text")
+     * @ORM\Column(name="notes", type="string", length=255, nullable=true)
      */
-    private $note;
-
+    private $notes;
 
     /**
      * Get id
@@ -81,7 +87,22 @@ class Parcel implements ParcelInterface
     public function setNote($note)
     {
         $this->note = $note;
-
+        return $this;
+    }
+    
+    /*       
+     * Get parcelHash
+     *
+     * @return guid
+     */
+    public function getParcelHash()
+    {
+        return $this->parcelHash;
+    }
+    
+    public function setParcelHash($parcelHash)
+    {
+        $this->parcelHash = $parcelHash;
         return $this;
     }
 

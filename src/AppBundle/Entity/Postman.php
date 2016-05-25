@@ -2,49 +2,89 @@
 
 namespace AppBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-use AppBundle\Model\PostmanInterface;
 
 /**
  * Postman
  *
- * @ORM\Table(name="postman")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostmanRepository")
  */
-class Postman extends BaseUser implements PostmanInterface
+class Postman extends User
 {
     /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="phone", type="string", length=11)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $phone;
+    private $name;
 
     /**
-     * @var string
+     * @var City
      *
-     * @ORM\Column(name="city", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="City")
+     * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
      */
     private $city;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=255)
+     */
+    private $phone;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRole('ROLE_POSTMAN');
+    }
 
     /**
-     * Get id
+     * Set name
      *
-     * @return int
+     * @param string $name
+     *
+     * @return Postman
      */
-    public function getId()
+    public function setName($name)
     {
-        return $this->id;
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set city
+     *
+     * @param City $city
+     *
+     * @return Postman
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return City
+     */
+    public function getCity()
+    {
+        return $this->city;
     }
 
     /**
@@ -69,29 +109,5 @@ class Postman extends BaseUser implements PostmanInterface
     public function getPhone()
     {
         return $this->phone;
-    }
-
-    /**
-     * Set city
-     *
-     * @param string $city
-     *
-     * @return Postman
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
     }
 }

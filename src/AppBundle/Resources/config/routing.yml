@@ -9,3 +9,19 @@ parcel_order:
 mobilepost:
     type: annotation
     resource: AppBundle\Controller\DefaultController
+
+app_parcel_order:
+    type: rest
+    resource: 'AppBundle\Controller\ParcelOrderController'
+
+app_user:
+    type: rest
+    resource: 'AppBundle\Controller\UserController'
+    
+app_postman:
+    type: rest
+    resource: 'AppBundle\Controller\PostmanController'
+
+app_task:
+    type: rest
+    resource: 'AppBundle\Controller\TaskController'

@@ -131,7 +131,7 @@ class AddressData
     /**
      * Set city
      *
-     * @param string $city
+     * @param City $city
      *
      * @return AddressData
      */
@@ -145,7 +145,7 @@ class AddressData
     /**
      * Get city
      *
-     * @return string
+     * @return City
      */
     public function getCity()
     {

@@ -1,17 +1,10 @@
 {
-	"name": "parcel-manager",
-	"version": "1.0.0", 
-	"scripts":
-	{ 
-		"start": "npm run lite",
-		"lite": "lite-server"
-	},
-	"license": "ISC",
-	"dependencies": 
-	{
-		"angular": "1.4.x", 
-		"angular-mocks": "1.4.x", 
-		"bootstrap": "~3.1.1", 
-		"angular-route": "1.4.x", 
-		"angular-resource": "1.4.x" 
-	}, "devDependencies": { "concurrently": "^2.0.0", "lite-server": "^2.1.0" } }
+    "name": "parcel-manager",
+    "version": "1.0.0",
+    "dependencies": {
+        "angular": "1.4.x",
+        "angular-route": "1.4.x",
+        "angular-resource": "1.4.x",
+		"bootstrap": "~3.1.1"
+    }
+}
