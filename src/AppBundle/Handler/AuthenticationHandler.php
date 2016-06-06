@@ -2,43 +2,35 @@
 
 namespace AppBundle\Handler;
 
-use JMS\Serializer\SerializerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Routing\Router;
+use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-/**
- * Description of AuthenticationHandler
- *
- * @author Wiktor Pikosz <wiktor12348@gmail.com>
- */
 class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, AuthenticationFailureHandlerInterface {
-
-    private $serializer;
-
-    public function __construct(SerializerInterface $serializer) {
-        $this->serializer = $serializer;
-    }
-
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token) {
-        //print_r($token);
-        $result = array(
-            'success' => true,
-            'user' => $token->getUser()
-        );
-        $response = new Response($this->serializer->serialize($result, 'json'));
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
-    }
-
-    public function onAuthenticationFailure(Request $request, AuthenticationException $exception) {
-        $result = array('success' => false, 'message' => $exception->getMessage());
-        $response = new Response($this->serializer->serialize($result, 'json'));
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
-    }
-
+  private $router;
+  public function __construct(Router $router) {
+    $this->router = $router;
+  }
+  
+  public function onAuthenticationSuccess(Request $request, TokenInterface $token) {
+      $result = array('success' => true);
+      $response = new Response(json_encode($result));
+      $response->headers->set('Content-Type', 'application/json');
+      return $response;
+  }
+  
+  public function onAuthenticationFailure(Request $request, AuthenticationException $exception) {
+      $result = array('success' => false, 'message' => $exception->getMessage());
+      $response = new Response(json_encode($result));
+      $response->headers->set('Content-Type', 'application/json');
+      return $response;
+  }
 }

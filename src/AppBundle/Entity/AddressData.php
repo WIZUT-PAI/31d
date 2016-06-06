@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Model\AddressDataInterface;
 
 /**
  * AddressData
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="address_data")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AddressDataRepository")
  */
-class AddressData
+class AddressData implements AddressDataInterface
 {
     /**
      * @var int

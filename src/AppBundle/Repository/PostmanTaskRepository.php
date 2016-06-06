@@ -10,4 +10,7 @@ namespace AppBundle\Repository;
  */
 class PostmanTaskRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function findTaskByPostman($id) {
+		return $this->getEntityManager()->createQuery('SELECT p FROM AppBundle:PostmanTask p WHERE p.postman = ' . $id)->getResult();
+	}
 }

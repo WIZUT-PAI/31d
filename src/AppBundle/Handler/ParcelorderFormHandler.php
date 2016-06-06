@@ -1,20 +1,16 @@
 <?php
-
 namespace AppBundle\Handler;
-
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\FormFactoryInterface;
-use AppBundle\Model\ParcelInterface;
-use AppBundle\Form\ParcelType;
+use AppBundle\Model\ParcelorderInterface;
+use AppBundle\Form\ParcelorderType;
 use AppBundle\Exception\InvalidFormException;
-
-class ParcelFormHandler implements ParcelFormHandlerInterface
+class ParcelorderFormHandler implements ParcelorderFormHandlerInterface
 {
     private $entityClass;
     private $repository;
     private $formFactory;
     private $formType;
-	
     public function __construct(ObjectManager $om, $entityClass,FormFactoryInterface $formFactory, $formType)
     {
         $this->entityClass = $entityClass;
@@ -22,26 +18,23 @@ class ParcelFormHandler implements ParcelFormHandlerInterface
         $this->formFactory = $formFactory;
         $this->formType = $formType;
     }
-	
     public function post(array $parameters)
     {
-        $parcel = $this->createParcel();
-        return $this->processForm($parcel, $parameters, 'POST');
+        $parcelorder = $this->createParcelorder();
+        return $this->processForm($parcelorder, $parameters, 'POST');
     }
-	
-    private function processForm(ParcelInterface $parcel, array $parameters, $method = "PUT")
+    private function processForm(ParcelorderInterface $parcelorder, array $parameters, $method = "PUT")
     {
-        $form = $this->formFactory->create($this->formType, $parcel, array('method' => $method));
+        $form = $this->formFactory->create($this->formType, $parcelorder, array('method' => $method));
         $form->submit($parameters, 'PATCH' !== $method);
         if ($form->isValid()) {
             $note = $form->getData();
-            $this->repository->save($parcel);
-            return $parcel;
+            $this->repository->save($parcelorder);
+            return $parcelorder;
 		}
         throw new InvalidFormException('Invalid submitted data', $form);
     }
-	
-    private function createParcel()
+    private function createParcelorder()
     {
         return new $this->entityClass();
     }

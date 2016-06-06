@@ -1,7 +1,8 @@
 parameters:
     parcel.class: AppBundle\Entity\Parcel
     parcelorder.class: AppBundle\Entity\ParcelOrder
-    addessdata.class: AppBundle\Entity\AddressData
+    postman.class: AppBundle\Entity\Postman
+    addressdata.class: AppBundle\Entity\AddressData
 
 services:
     parcelorder_emailsender.handler:
@@ -17,6 +18,17 @@ services:
     parcelorder_form.handler:
         class: AppBundle\Handler\ParcelOrderFormHandler
         arguments: ['@doctrine.orm.entity_manager', %parcelorder.class%, '@form.factory', 'AppBundle\Form\ParcelOrderType']
-    addessdata_form.handler:
-        class: AppBundle\Handler\AddressDataFormHandler
-        arguments: ['@doctrine.orm.entity_manager', %addessdata.class%, '@form.factory', 'AppBundle\Form\AddressDataType']
+    addressdata_form.handler:
+        class: AppBundle\Handler\AddressFormHandler
+        arguments: ['@doctrine.orm.entity_manager', %addressdata.class%, '@form.factory', 'AppBundle\Form\AddressDataType']
+    postman_form.handler:
+        class: AppBundle\Handler\PostmanFormHandler
+        arguments: ['@doctrine.orm.entity_manager', %postman.class%, '@form.factory', 'AppBundle\Form\PostmanType']
+    authentication_handler:
+        class: AppBundle\Handler\AuthenticationHandler
+        arguments:  ["@router"]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }
+    user_form.handler:
+        class: AppBundle\Handler\UserFormHandler
+        arguments: ['@service_container']

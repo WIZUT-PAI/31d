@@ -2,9 +2,9 @@
 
 /* Services */
 
-var parcelServices = angular.module('mobilepostServices', ['ngResource']);
+var mobilePostServices = angular.module('mobilePostServices', ['ngResource']);
 
-parcelServices.factory('Postman', ['$resource', 
+mobilePostServices.factory('Postman', ['$resource', 
 	function($resource){
     		return $resource('/postmen/:postmanId', {}, {
       			query: {method:'GET', isArray:true, headers: {'Accept': 'application/json'}},
@@ -16,7 +16,7 @@ parcelServices.factory('Postman', ['$resource',
 		});		
 	}]);
 
-app.factory('User', function ($http, $q) {
+mobilePostServices.factory('User', function ($http, $q) {
     return {
         login: function (username, password) {
             var self = this;
@@ -64,15 +64,16 @@ app.factory('User', function ($http, $q) {
     };
 });
 
-app.factory('ParcelOrder', ['$resource', function ($resource) {
+mobilePostServices.factory('ParcelOrder', ['$resource', function ($resource) {
     return $resource('/parcelorders/:id', {}, {
         query: {method: 'GET', isArray: true},
         queryUnassigned: {method: 'GET', isArray: true, url: '/parcelorders/unassigned'}
     });
 }]);
 
-app.factory('Task', ['$resource', function ($resource) {
+mobilePostServices.factory('Task', ['$resource', function ($resource) {
     return $resource('/tasks/:id', {}, {
-        post: {method: 'POST'}
+        query: {method: 'GET', isArray: true, headers: {'Accept': 'application/json'}},
+        post: {method: 'POST', headers: {'Accept': 'application/json'}}
     });
 }]);

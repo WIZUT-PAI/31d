@@ -2,7 +2,8 @@
 
 namespace AppBundle\Repository;
 
-use AppBundle\Entity\ParcelOrder;
+use Doctrine\ORM\EntityRepository;
+use AppBundle\Model\ParcelOrderInterface;
 
 /**
  * ParcelOrderRepository
@@ -12,13 +13,7 @@ use AppBundle\Entity\ParcelOrder;
  */
 class ParcelOrderRepository extends \Doctrine\ORM\EntityRepository
 {
-    function save(ParcelOrder $entity)
-    {
-        $em = $this->getEntityManager();
-        $em->persist($entity);
-        $em->flush();
-    }
-	
+
 	public function delete(ParcelInterface $parcelOrder) { 
 		$em = $this->getEntityManager();
 		$em->remove($parcelOrder);
@@ -30,5 +25,11 @@ class ParcelOrderRepository extends \Doctrine\ORM\EntityRepository
         return $this->getEntityManager()->createQuery(
             'SELECT po FROM AppBundle:ParcelOrder po WHERE NOT EXISTS (SELECT t FROM AppBundle:Task t WHERE t.id = po.id)'
         )->getResult();
+    }
+
+	public function save(ParcelorderInterface $parcelorder) {
+		$em = $this->getEntityManager();
+        	$em->persist($parcelorder);
+        	$em->flush();
     }
 }

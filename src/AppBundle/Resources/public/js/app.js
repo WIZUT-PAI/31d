@@ -31,6 +31,10 @@ app.config(['$routeProvider', function ($routeProvider) {
             'templateUrl': '/bundles/app/partials/login.html',
             'controller': 'LoginCtrl'
         })
+        .when('/tasks', {
+            'templateUrl': '/bundles/app/partials/task-list.html',
+            'controller': 'TaskListCtrl'
+        })
         .when('/assigntasks', {
             'templateUrl': '/bundles/app/partials/assigntasks.html',
             'controller': 'AssignTasksCtrl'

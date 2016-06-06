@@ -25,3 +25,7 @@ app_postman:
 app_task:
     type: rest
     resource: 'AppBundle\Controller\TaskController'
+
+address_data:
+    type: rest
+    resource: 'AppBundle\Controller\AddressDataController'

@@ -2,8 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@AppBundle/Resources/config/config.yml" }
-    
+
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
@@ -19,9 +18,7 @@ framework:
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
-    serializer:
-        enabled: true
-
+    #serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
     default_locale:  "%locale%"
@@ -69,25 +66,21 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-    
-fos_rest:
-    disable_csrf_role: ROLE_API
-    param_fetcher_listener: force
-    routing_loader:
-        default_format: json
-        include_format: false
+
 
 sensio_framework_extra:
-    view:   {   annotations: false }
+    view:   {   annotations: true }
     router: {   annotations: true }
-       
+
+fos_rest:
+<<<<<<< HEAD
+    param_fetcher_listener: force
+    
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: AppBundle\Entity\User
-    
-assetic:
-    debug:          '%kernel.debug%'
-    use_controller: false
-    filters:
-        cssrewrite: ~
+    user_class: AppBundle\Entity\User    
+=======
+    view:
+        view_response_listener: true
+>>>>>>> master

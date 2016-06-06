@@ -1,4 +1,5 @@
 <?php
+// src/AppBundle/Entity/User.php
 
 namespace AppBundle\Entity;
 
@@ -8,9 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
- * @ORM\InheritanceType("SINGLE_TABLE")
- * @ORM\DiscriminatorColumn(name="type", type="integer")
- * @ORM\DiscriminatorMap( {1 = "User", 2 = "Postman"} )
  */
 class User extends BaseUser
 {

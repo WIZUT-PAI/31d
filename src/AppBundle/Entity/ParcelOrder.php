@@ -11,33 +11,25 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="parcel_order")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ParcelOrderRepository")
  */
-class ParcelOrder implements ParcelOrderInterface
+class ParcelOrder implements ParcelorderInterface
 {
     /**
-      * @ORM\OneToOne(targetEntity="Parcel", inversedBy="parcelOrders")
+      * @ORM\OneToOne(targetEntity="Parcel", cascade={"persist"})
       * @ORM\JoinColumn(name="parcel_id", referencedColumnName="id")
       */
     protected $parcel;
     
     /**
-      * @ORM\OneToOne(targetEntity="AddressData", inversedBy="parcelOrders")
+      * @ORM\OneToOne(targetEntity="AddressData", cascade={"persist"})
       * @ORM\JoinColumn(name="sender_id", referencedColumnName="id")
       */
     protected $sender;
     
     /**
-      * @ORM\OneToOne(targetEntity="AddressData", inversedBy="parcelOrders")
+      * @ORM\OneToOne(targetEntity="AddressData", cascade={"persist"})
       * @ORM\JoinColumn(name="receiver_id", referencedColumnName="id")
       */    
     protected $receiver;
-    
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="hash_code", type="string")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */    
-    protected $hash_code;
 
     /**
      * @var int
@@ -54,6 +46,14 @@ class ParcelOrder implements ParcelOrderInterface
      * @ORM\Column(name="tracking", type="boolean")
      */
     private $tracking;
+    
+    /*
+     * @var guid
+     *
+     * @ORM\Column(name="hash_code", type="string", unique=true)
+     */
+    private $hash_code;
+    
 
     public function getHashCode()
     {
@@ -172,4 +172,13 @@ class ParcelOrder implements ParcelOrderInterface
     {
         return $this->receiver;
     }
+    
+    /**
+	 *
+	 * @return string String representation of this class
+	 */
+	public function __toString()
+	{
+	    return (string)$this->id;
+	}
 }

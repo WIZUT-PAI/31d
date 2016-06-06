@@ -13,13 +13,21 @@ use Doctrine\ORM\Mapping as ORM;
 class PostmanTask
 {
     /**
+<<<<<<< HEAD
       * @ORM\OneToOne(targetEntity="Postman", inversedBy="postmanTasks")
+=======
+      * @ORM\OneToOne(targetEntity="Postman")
+>>>>>>> 6b38048e316f71dedd72bbe25773bf548adf9782
       * @ORM\JoinColumn(name="postman_id", referencedColumnName="id")
       */
     protected $postman;
 
     /**
+<<<<<<< HEAD
       * @ORM\OneToOne(targetEntity="ParcelOrder", inversedBy="postmanTasks")
+=======
+      * @ORM\OneToOne(targetEntity="ParcelOrder")
+>>>>>>> 6b38048e316f71dedd72bbe25773bf548adf9782
       * @ORM\JoinColumn(name="parcel_order_id", referencedColumnName="id")
       */
     protected $parcel_order;
