@@ -62,10 +62,10 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
+    transport: gmail
+    host:      gmail.smtp.com
+    username:  supertest@local.com
+    password:  supertest
     spool:     { type: memory }
     
 fos_rest:
@@ -73,3 +73,19 @@ fos_rest:
     routing_loader:
         default_format: json
         include_format: false
+
+fos_user:
+    service:
+        mailer: fos_user.mailer.twig.swift
+    registration:
+        confirmation:
+            enabled: true
+            from_email:
+                address: supertest@local.com
+                sender_name: Demo Registration
+    resetting:
+        email:
+            template: email/password_resetting.email.twig
+            from_email:
+                address: reset@local.com
+                sender_name: Demo Resetting

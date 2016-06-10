@@ -2,6 +2,9 @@ services:
     parcelorder_emailsender.handler:
         class: AppBundle\Handler\ParcelOrderSendEmailHandler
         arguments: [ '@twig','@mailer' ]
+    user_emailsender.handler:
+        class: AppBundle\Handler\PasswordRessetingEmailHandler
+        arguments: [ '@twig','@mailer' ]
     app.form.registration:
         class: AppBundle\Form\RegistrationType
         tags:
