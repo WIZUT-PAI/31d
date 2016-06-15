@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Model\PostmanInterface;
+
 /**
  * PostmanRepository
  *
@@ -10,4 +12,15 @@ namespace AppBundle\Repository;
  */
 class PostmanRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function find($id)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT p FROM AppBundle:Postman p WHERE p.id =' . $id )
+            ->getResult();
+    }
+    public function save(PostmanInterface $postman) {
+		$em = $this->getEntityManager();
+        	$em->persist($postman);
+        	$em->flush();
+    }
 }

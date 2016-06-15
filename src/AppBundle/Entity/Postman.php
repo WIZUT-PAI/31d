@@ -2,9 +2,8 @@
 
 namespace AppBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Model\PostmanInterface;
 
 /**
  * Postman
@@ -12,14 +11,30 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="postman")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostmanRepository")
  */
-class Postman extends BaseUser
+class Postman implements PostmanInterface
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="first_name", type="string", length=255)
+     */
+    private $first_name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="last_name", type="string", length=255)
+     */
+    private $last_name;
 
     /**
      * @var string
@@ -27,6 +42,13 @@ class Postman extends BaseUser
      * @ORM\Column(name="phone", type="string", length=11)
      */
     private $phone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $email;
 
     /**
      * @var string
@@ -44,6 +66,54 @@ class Postman extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set firstName
+     *
+     * @param string $firstName
+     *
+     * @return Postman
+     */
+    public function setFirstName($firstName)
+    {
+        $this->first_name = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Get firstName
+     *
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->first_name;
+    }
+
+    /**
+     * Set lastName
+     *
+     * @param string $lastName
+     *
+     * @return Postman
+     */
+    public function setLastName($lastName)
+    {
+        $this->last_name = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Get lastName
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->last_name;
     }
 
     /**
@@ -71,6 +141,30 @@ class Postman extends BaseUser
     }
 
     /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Postman
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
      * Set city
      *
      * @param string $city
@@ -93,4 +187,13 @@ class Postman extends BaseUser
     {
         return $this->city;
     }
+    
+	/**
+	 *
+	 * @return string String representation of this class
+	 */
+	public function __toString()
+	{
+	    return (string)$this->id;
+	}
 }

@@ -2,8 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@AppBundle/Resources/config/config.yml" }
-    
+
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
@@ -11,7 +10,7 @@ parameters:
 
 framework:
     #esi:             ~
-    translator:      ~
+    #translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -54,7 +53,8 @@ doctrine:
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
         #     path:     "%database_path%"
-
+        mapping_types:
+          enum: string
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
@@ -67,15 +67,53 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-    
+
+
+sensio_framework_extra:
+    view:   {   annotations: false }
+    router: {   annotations: true }
+
 fos_rest:
-    param_fetcher_listener: force
-    routing_loader:
-        default_format: json
-        include_format: false
+  serializer:
+    serialize_null: true
+  view:
+    view_response_listener: force
+    force_redirects:
+      html: true
+    formats:
+      json: true
+      xml: true
+      rss: false
+    templating_formats:
+      html: true
+    mime_types:
+      json: ['application/json', 'application/x-json', 'application/vnd.example-com.foo+json']
+      jpg: 'image/jpeg'
+      png: 'image/png'
+  body_listener: true
+  param_fetcher_listener: force
+  allowed_methods_listener: true
+  access_denied_listener:
+    json: true
+  format_listener:
+    rules:
+      - { path: '^/', priorities: ['html','json', 'xml'], fallback_format: html, prefer_extension: true }
+  routing_loader:
+    default_format: ~
+  exception:
+    codes: 
+      'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+    messages: 
+      'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
+  disable_csrf_role: ROLE_API
         
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    
 assetic:
-    debug: "%kernel.debug%"
+    debug:          '%kernel.debug%'
     use_controller: false
     filters:
         cssrewrite: ~

@@ -1,11 +1,7 @@
 <?php
 namespace AppBundle\Model;
-
 Interface ParcelOrderInterface
 {
-	public function getHashCode();
-	public function setHashCode($hash_code);
-	public function getId();
 	public function setTracking($tracking);
 	public function getTracking();
 	public function setParcel(\AppBundle\Entity\Parcel $parcel = null);

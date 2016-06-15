@@ -1,0 +1,26 @@
+ParcelBundle\Entity\Parcel:
+    properties:
+        id_Sender:
+            - NotBlank: ~
+            - NotNull: ~
+            - Length: min: 1 max: 255
+            minMessage: "The id_Sender name must have at least 1 characters length"
+                maxMessage: "The id_Sender cannot be longer than 255 characters length"
+        id_Receiver:
+            - NotBlank: ~
+            - NotNull: ~
+            - Length: min: 1 max: 255
+            minMessage: "The id_Receiver name must have at least 1 characters length"
+                maxMessage: "The id_Receiver cannot be longer than 255 characters length"
+        id_Postman:
+            - NotBlank: ~
+            - NotNull: ~
+            - Length: min: 1 max: 255
+            minMessage: "The id_Postman name must have at least 1 characters length"
+                maxMessage: "The id_Postman cannot be longer than 255 characters length"   
+        parcel_hash:
+            - NotBlank: ~
+            - NotNull: ~
+            - Length: min: 5 max: 255
+            minMessage: "The parcel_hash name must have at least 5 characters length"
+                maxMessage: "The parcel_hash cannot be longer than 255 characters length"            

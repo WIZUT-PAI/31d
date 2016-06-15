@@ -1,6 +1,8 @@
 <?php
 
 namespace AppBundle\Repository;
+use Doctrine\ORM\EntityRepository;
+use AppBundle\Model\ParcelInterface;
 
 /**
  * ParcelRepository

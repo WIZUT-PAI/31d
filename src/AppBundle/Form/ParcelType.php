@@ -5,8 +5,6 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextAreaType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class ParcelType extends AbstractType
 {
@@ -17,8 +15,8 @@ class ParcelType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('weight', NumberType::class)
-            ->add('note', TextAreaType::class)
+            ->add('weight')
+            ->add('note')
         ;
     }
     
@@ -28,8 +26,8 @@ class ParcelType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Parcel', 
-            'csrf_protection' => false
+            'data_class' => 'AppBundle\Entity\Parcel',
+			'csrf_protection' => false
         ));
     }
 }

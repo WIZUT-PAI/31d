@@ -2,7 +2,4 @@
 # www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
 
 User-agent: *
-<<<<<<< HEAD
 Disallow:
-=======
->>>>>>> 005ac68fe17a1ddc9867ddbab09d43fe4edfb9ae
