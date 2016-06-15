@@ -1,15 +1,5 @@
-postmen:
+address_data:
     type: rest
-    resource: AppBundle\Controller\PostmenController
-
-parcel_order:
-    type: rest
-    resource: AppBundle\Controller\ParcelOrderController
-
-task:
-    type: rest
-    resource: AppBundle\Controller\TaskController
-
-mobilepost:
-    type: annotation
-    resource: AppBundle\Controller\DefaultController
+    prefix: /v1
+    resource: 'AppBundle\Controller\AddressDataController'
+    name_prefix: adr_1_ # naming collision

@@ -1,9 +1,29 @@
 # Learn more about services, parameters and containers at
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
-#    parameter_name: value
+     parcelorder.class: AppBundle\Entity\ParcelOrder
+     postman.class: AppBundle\Entity\Postman
+     parcel.class: AppBundle\Entity\Parcel
+     addressdata.class: AppBundle\Entity\AddressData
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    parcelorder_form.handler:
+        class: AppBundle\Handler\ParcelorderFormHandler
+        arguments: ['@doctrine.orm.entity_manager', %parcelorder.class%, '@form.factory', 'AppBundle\Form\ParcelorderType']
+    parcel_form.handler:
+        class: AppBundle\Handler\ParcelFormHandler
+        arguments: ['@doctrine.orm.entity_manager', %parcel.class%, '@form.factory', 'AppBundle\Form\ParcelType']
+    addressdata_form.handler:
+        class: AppBundle\Handler\AddressFormHandler
+        arguments: ['@doctrine.orm.entity_manager', %addressdata.class%, '@form.factory', 'AppBundle\Form\AddressDataType']
+    postman_form.handler:
+        class: AppBundle\Handler\PostmanFormHandler
+        arguments: ['@doctrine.orm.entity_manager', %postman.class%, '@form.factory', 'AppBundle\Form\PostmanType']
+    authentication_handler:
+        class: AppBundle\Handler\AuthenticationHandler
+        arguments:  ["@router"]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }
+    user_form.handler:
+        class: AppBundle\Handler\UserFormHandler
+        arguments: ['@service_container']

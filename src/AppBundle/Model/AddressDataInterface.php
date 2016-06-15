@@ -1,9 +1,7 @@
 <?php
 namespace AppBundle\Model;
-
 Interface AddressDataInterface
 {
-	public function getId();
 	public function setFirstName($firstName);
 	public function getFirstName();
 	public function setLastName($lastName);

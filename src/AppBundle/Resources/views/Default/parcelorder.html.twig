@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+        <link rel="stylesheet"
+            href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Nadaj paczkę.</h1>
+			<form action="parcelorder.json" name="name" method="POST" role="form" class="form-horizontal" enctype='application/json'>
+			<h2>Podaj dane paczki.</h2>
+			<div class="form-group">
+				<label for="weight">Waga:</label>
+				<input type="text" name="parcel[weight]" class="form-control" id="weight">
+			</div>
+				<div class="form-group">
+				<label for="note">Uwagi:</label>
+				<textarea class="form-control" name="parcel[note]" rows="5" id="note"></textarea>
+			</div>
+			<h2>Podaj dane nadawcy.</h2>
+			<div class="form-group">
+				<label for="sender_first_name">Imię:</label>
+				<input type="text" name="sender[first_name]" class="form-control" id="sender_first_name" >
+			</div>
+			<div class="form-group">
+				<label for="sender_last_name">Nazwisko:</label>
+				<input type="text" name="sender[last_name]" class="form-control" id="sender_last_name">
+			</div>
+			<div class="form-group">
+				<label for="sender_city">Miasto:</label>
+				<input type="text" name="sender[city]" class="form-control" id="sender_city">
+			</div>
+			<div class="form-group">
+				<label for="sender_street">Ulica:</label>
+				<input type="text" name="sender[street]" class="form-control" id="sender_street">
+			</div>
+			<div class="form-group">
+				<label for="sender_postal_code">Kod pocztowy:</label>
+				<input type="text" name="sender[postal_code]" class="form-control" id="sender_postal_code">
+			</div>
+			<div class="form-group">
+				<label for="sender_phone">Telefon:</label>
+				<input type="text" name="sender[phone]" class="form-control" id="sender_phone">
+			</div>
+			<div class="form-group">
+				<label for="sender_email">Email:</label>
+				<input type="email" name="sender[email]" class="form-control" id="sender_email">
+			</div>
+			<h2>Podaj dane odbiorcy.</h2>
+			<div class="form-group">
+				<label for="receiver_first_name">Imię:</label>
+				<input type="text" name="receiver[first_name]" class="form-control" id="receiver_first_name">
+			</div>
+			<div class="form-group">
+				<label for="receiver_last_name">Nazwisko:</label>
+				<input type="text" name="receiver[last_name]" class="form-control" id="receiver_last_name">
+			</div>
+			<div class="form-group">
+				<label for="receiver_city">Miasto:</label>
+				<input type="text" name="receiver[city]" class="form-control" id="receiver_city">
+			</div>
+			<div class="form-group">
+				<label for="receiver_street">Ulica:</label>
+				<input type="text" name="receiver[street]" class="form-control" id="receiver_street">
+			</div>
+			<div class="form-group">
+				<label for="receiver_postal_code">Kod pocztowy:</label>
+				<input type="text" name="receiver[postal_code]" class="form-control" id="receiver_postal_code">
+			</div>
+			<div class="form-group">
+				<label for="receiver_phone">Telefon:</label>
+				<input type="text" name="receiver[phone]" class="form-control" id="receiver_phone">
+			</div>
+			<div class="form-group">
+				<label for="receiver_email">Email:</label>
+				<input type="email" name="receiver[email]" class="form-control" id="receiver_email">
+			</div>
+			<input type="hidden" name="tracking" value="1" />
+			<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+	</body>
+</html>

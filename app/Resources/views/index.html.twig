@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="postmanPanel">
+  <head>
+    <meta charset="UTF-8" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>MobilePost</title>
+    <script src="{{ asset('assets/node_modules/angular/angular.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/node_modules/angular-route/angular-route.js') }}"></script>
+    <script src="{{ asset('assets/node_modules/angular-resource/angular-resource.js') }}"></script>
+    <script src="{{ asset('assets/js/controllers.js') }}"></script>
+    <script src="{{ asset('assets/js/services.js') }}"></script>
+    <script src="{{ asset('assets/js/directives.js') }}"></script>
+  </head>
+  <body>
+    <div ng-view></div>
+  </body>
+</html>

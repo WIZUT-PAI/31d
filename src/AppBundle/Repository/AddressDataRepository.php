@@ -2,6 +2,9 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\ORM\EntityRepository;
+use AppBundle\Model\AddressDataInterface;
+
 /**
  * AddressDataRepository
  *
@@ -20,5 +23,6 @@ class AddressDataRepository extends \Doctrine\ORM\EntityRepository
 		$em = $this->getEntityManager();
 		$em->persist($address);
 		$em->flush();
-	}
+}
+
 }

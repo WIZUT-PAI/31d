@@ -1,0 +1,85 @@
+AppBundle\Entity\Postman:
+    properties:
+        first_name:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+                minMessage: 'Your first name must be at least {{ limit }} characters long'
+                maxMessage: 'Your first name cannot be longer than {{ limit }} characters'
+        last_name:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+                minMessage: 'Your last name must be at least {{ limit } characters long'
+                maxMessage: 'Your last name cannot be longer than {{ limit }} characters'
+        phone:
+            - NotBlank: ~
+            - Length:
+                min: 9
+                max: 11
+                minMessage: 'Your phone number must be at least {{ limit }} digits long'
+                maxMessage: 'Your phone number cannot be longer than {{ limit }} digits'
+        email:
+            - NotBlank: ~
+            - Length:
+                min: 8
+                max: 255   
+                minMessage: 'Your e-mail address must be at least {{ limit }} characters long'
+                maxMessage: 'Your e-mail address cannot be longer than {{ limit }} characters'
+        city:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+                minMessage: 'Your city must be at least {{ limit }} characters long'
+                maxMessage: 'Your city cannot be longer than {{ limit }} characters'
+
+AppBundle\Entity\AddressData:
+    properties:
+        first_name:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+                minMessage: 'Your first name must be at least {{ limit }} characters long'
+                maxMessage: 'Your first name cannot be longer than {{ limit }} characters'
+        last_name:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+                minMessage: 'Your last name must be at least {{ limit }} characters long'
+                maxMessage: 'Your last name cannot be longer than {{ limit }} characters'
+        city:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+                minMessage: 'Your city must be at least {{ limit }} characters long'
+                maxMessage: 'Your city cannot be longer than {{ limit }} characters'
+        street:
+            - NotBlank: ~
+            - Length:
+                min: 2
+                max: 255
+                minMessage: 'Your street name must be at least {{ limit }} characters long'
+                maxMessage: 'Your street name cannot be longer than {{ limit }} characters'
+        postal_code:
+            - NotBlank: ~
+            - Length: 6
+        phone:
+            - NotBlank: ~
+            - Length:
+                min: 9
+                max: 11
+                minMessage: 'Phone number must be at least {{ limit }} characters long'
+                maxMessage: 'Phone number cannot be longer than {{ limit }} characters'
+        email:
+            - NotBlank: ~
+            - Length:
+                min: 8
+                max: 255
+                minMessage: 'Email address must be at least {{ limit }} characters long'
+                maxMessage: 'Email address cannot be longer than {{ limit }} characters'h

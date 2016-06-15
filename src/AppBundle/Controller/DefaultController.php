@@ -9,12 +9,25 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/mobilepost", name="mobilepost")
+     * @Route("/", name="homepage")
      */
     public function indexAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('AppBundle:MobilePost:index.html.twig');
+        return $this->render('index.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+        ]);
+    }
+	
+	/**
+     * @Route("/newparcelorder", name="parcel_order_bs_form")
+     */
+    public function parcelorderbsAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('AppBundle:Default:parcelorder.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+        ]);
     }
     
     /**
@@ -22,7 +35,6 @@ class DefaultController extends Controller
      */
 	public function postmanpanelAction()
 	{
-		return $this->render('AppBundle:MobilePost:index.html.twig');
+		return $this->render('AppBundle:Default:postmanpanel.html.twig');
 	}
 }
-
