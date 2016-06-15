@@ -1,0 +1,23 @@
+<div ng-show="authorization">
+  <table border=1>
+	<h1>Lista zadań</h1>
+    <tr>
+        <th>ID</th>
+        <th>Nadawca</th>
+        <th>Odbiorca</th>
+        <th>Adres odbiorcy</th>
+        <th>Telefon odbiorcy</th>
+        <th>Status wykonania</th>
+        <th>Kurier</th>
+    </tr>
+    <tr ng-repeat="task in tasks">
+      <td>{{task.id}}</td>
+      <td>{{task.sender}}</td>
+      <td>{{task.receiver}}</td>
+      <td>{{task.receiver_address}}</td>
+      <td>{{task.receiver_phone}}</td>
+      <td>{{task.done}}</td>
+      <td>{{task.postman}}</td>
+    </li>
+  </ul>
+</div>
