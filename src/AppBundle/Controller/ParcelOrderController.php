@@ -48,5 +48,19 @@ class ParcelorderController extends FOSRestController {
  		} catch (InvalidFormException $exception) {
  			return array('form' => $exception->getForm());
  		}
- 	}                                                               
+ 	}      
+	
+	public function deleteParcelorderAction(Request $request, $id) 
+ 	{ 
+ 		var_dump($request);
+ 		$parcel = $this->getDoctrine()->getRepository('AppBundle\Entity\ParcelOrder')->find($id);
+ 		if ($parcel)
+ 		{
+ 			$this->getDoctrine()->getRepository('AppBundle\Entity\ParcelOrder')->delete($parcel);
+ 		}
+ 		else
+ 		{			
+ 			throw new NotFoundHttpException(sprintf('The resource \'%s\' was not found.', $id));
+ 		}	
+ 	}	
 }
