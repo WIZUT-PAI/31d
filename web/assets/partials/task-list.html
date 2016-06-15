@@ -1,47 +1,23 @@
 <div ng-show="authorization">
-
-<!-- Generated from http://html-generator.weebly.com -->
-<script type="text/javascript">
-	window.onload=function(){
-	var tfrow = document.getElementById('tfhover').rows.length;
-	var tbRow=[];
-	for (var i=1;i<tfrow;i++) {
-		tbRow[i]=document.getElementById('tfhover').rows[i];
-		tbRow[i].onmouseover = function(){
-		  this.style.backgroundColor = '#ffffff';
-		};
-		tbRow[i].onmouseout = function() {
-		  this.style.backgroundColor = '#d4e3e5';
-		};
-	}
-};
-</script>
-
-<style type="text/css">
-table.tftable {font-size:12px;color:#333333;width:100%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
-table.tftable th {font-size:12px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:left;}
-table.tftable tr {background-color:#d4e3e5;}
-table.tftable td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
-</style>
-
-	<table id="tfhover" class="tftable" border="1">
-		<tr>
-			<th>ID</th>
-			<th>Nadawca</th>
-			<th>Odbiorca</th>
-			<th>Adres odbiorcy</th>
-			<th>Telefon odbiorcy</th>
-			<th>Śledzi</th>
-			<th>Kurier</th>
-		</tr>
-		<tr ng-repeat="task in tasks">
-		  <td>{{task.id}}</td>
-		  <td>{{task.sender}}</td>
-		  <td>{{task.receiver}}</td>
-		  <td>{{task.receiver_address}}</td>
-		  <td>{{task.receiver_phone}}</td>
-		  <td>{{task.done}}</td>
-		  <td>{{task.postman}}</td>
-		</tr>
-	</table>
+  <table border=1>
+	<h1>Lista zadań</h1>
+    <tr>
+        <th>ID</th>
+        <th>Nadawca</th>
+        <th>Odbiorca</th>
+        <th>Adres odbiorcy</th>
+        <th>Telefon odbiorcy</th>
+        <th>Status wykonania</th>
+        <th>Kurier</th>
+    </tr>
+    <tr ng-repeat="task in tasks">
+      <td>{{task.id}}</td>
+      <td>{{task.sender}}</td>
+      <td>{{task.receiver}}</td>
+      <td>{{task.receiver_address}}</td>
+      <td>{{task.receiver_phone}}</td>
+      <td>{{task.done}}</td>
+      <td>{{task.postman}}</td>
+    </li>
+  </ul>
 </div>

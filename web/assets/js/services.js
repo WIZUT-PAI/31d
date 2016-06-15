@@ -49,6 +49,14 @@ userServices.factory('User', ['$resource',
   }
 ]);
 
+authorizationServices.factory('Register', ['$resource',
+  function($resource) {
+    return $resource('http://localhost:8000/register/', {}, {
+      register: {method: 'POST', headers: {'Accept': 'application/json'}}
+    });
+  }
+]);
+
 authorizationServices.factory('Authorization', ['$resource',
   function($resource) {
     return $resource('http://localhost:8000/api/user.json', {}, {

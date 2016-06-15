@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Logowanie</title>
+    <title>Panel logowania</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,24 +30,24 @@
       
       
       <form name="login" class="form-signin" ng-submit="submit()">
-        <h2 class="form-signin-heading">Logowanie</h2>
-        <div class="error" ng-show="errors">
-          <span>{{errors}}</span>
-        </div>
+        <h2 class="form-signin-heading">Panel logowania</h2>
         <table>
           <tr>
             <td>Login:</td>
-            <td><input type="text" name="_username" class="form-control" placeholder="Email address" required autofocus ng-model="user._username"></td>
+            <td><input type="text" name="_username" class="form-control" placeholder="Wprowadź login" required autofocus ng-model="user._username"></td>
           </tr>
           <tr>
             <td>Hasło:</td>
-            <td><input type="password" name="_password" class="form-control" placeholder="Password" required ng-model="user._password"></td>
+            <td><input type="password" name="_password" class="form-control" placeholder="Wprowadź hasło" required ng-model="user._password"></td>
           </tr>
           <tr>
             <td></td>
-            <td><input type="submit" class="btn btn-lg btn-primary btn-block"  value="Loguj"></td>
+            <td><input type="submit" class="btn btn-lg btn-primary btn-block"  value="Zaloguj"></td>
           </tr>
         </table>
+		<div class="error" ng-show="errors">
+          <span>{{errors}}</span>
+        </div>
       </form>
 
     </div> <!-- /container -->
