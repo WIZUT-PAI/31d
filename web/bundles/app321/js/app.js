@@ -14,16 +14,12 @@ var app = angular.module('postmanPanel', ['taskControllers', 'parcelControllers'
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
-	when('/register',{
-		templateUrl: '/bundles/app/partials/user/register-form.html',
-		controller: 'RegisterUserForm'
-    }).
-    when('/register/confirmed',{
-		templateUrl: '/bundles/app/partials/user/register-confirmed-form.html',
-		controller: 'RegisterConfirmed'
-    }).
 	when('/login',{
 		templateUrl: '/bundles/app/partials/user/login-form.html',
+		controller: 'LoginUserForm'
+    }).
+    when('/register',{
+		templateUrl: '/bundles/app/partials/user/register-form.html',
 		controller: 'LoginUserForm'
     }).
 	when('/postman/new', {

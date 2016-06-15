@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Logowanie</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="main-content" ng-show="authorization">
+      <form name="form" class="form-signin" ng-submit="submit()">
+        <table>
+          <tr>
+            <td colspan=2>
+              <input type="text" name="first_name" class="form-control" placeholder="Imię" required autofocus ng-model="postman.first_name"/>
+              <span ng-show="form.$submitted && errors.first_name">{{errors.first_name}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan=2>
+              <input type="text" class="form-control" placeholder="Nazwisko" required ng-model="postman.last_name" />
+              <span ng-show="form.$submitted && errors.last_name">{{errors.last_name}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan=2>
+              <input type="text" class="form-control" placeholder="Telefon" required ng-model="postman.phone" />
+              <span ng-show="form.$submitted && errors.phone">{{errors.phone}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan=2>
+              <input type="text" class="form-control" placeholder="Email" required ng-model="postman.email" />
+              <span ng-show="form.$submitted && errors.email">{{errors.email}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan=2>
+              <input type="text" class="form-control" placeholder="Miejscowość" required ng-model="postman.city" />
+              <span ng-show="form.$submitted && errors.city">{{errors.city}}</span>
+            </td>
+          </tr>
+          <tr><td height=5></td></tr>
+          <tr>
+            <td align="right"><input type="submit" class="btn btn-lg btn-primary btn-block" id="submit" value="Save" /></td>
+            <td align="right"><input type="button" class="btn btn-lg btn-primary btn-block" value="Cancel" ng-redirect-to="#"/></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    </div> <!-- /container -->
+  </body>
+</html>

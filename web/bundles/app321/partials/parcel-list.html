@@ -1,0 +1,22 @@
+<table border=1>
+	<tr>
+		<th>city</th>
+		<th>postalCode</th>
+		<th>street</th>
+		<th>firstName</th>
+		<th>lastName</th>
+		<th>phone</th>
+		<th>email</th>
+		<th>weigth</th>
+	</tr>
+	<tr ng-repeat="parcel in parcels">
+		<td>{{parcel.city}}</td>
+		<td>{{parcel.postal_code}}</td>
+		<td>{{parcel.street}}</td>
+		<td>{{parcel.first_name}}</td>
+		<td>{{parcel.last_name}}</td>
+		<td>{{parcel.phone}}</td>
+		<td>{{parcel.email}}</td>
+		<td>{{parcel.weight}}</td>
+	</tr>
+</table>

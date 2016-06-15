@@ -10,9 +10,6 @@
 
     <title>Panel logowania</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
 
@@ -25,31 +22,14 @@
 
   <body>
 
-    <div class="container">
+    <div class="container text-center">
 
-      
-      
-      <form name="login" class="form-signin" ng-submit="submit()">
-        <h2 class="form-signin-heading">Panel logowania</h2>
-        <table>
-          <tr>
-            <td>Login:</td>
-            <td><input type="text" name="_username" class="form-control" placeholder="Wprowadź login" required autofocus ng-model="user._username"></td>
-          </tr>
-          <tr>
-            <td>Hasło:</td>
-            <td><input type="password" name="_password" class="form-control" placeholder="Wprowadź hasło" required ng-model="user._password"></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><input type="submit" class="btn btn-lg btn-primary btn-block"  value="Zaloguj"></td>
-          </tr>
-        </table>
+        <h1 class="form-signin-heading">Użytkownik został poprawnie zarejestrowany</h1>
+       <a href="#/login"><button type="button" class="btn btn-lg btn-primary">Zaloguj</button></a>
 		<div class="error" ng-show="errors">
           <span>{{errors}}</span>
         </div>
-      </form>
 
-    </div> <!-- /container -->
+    </div>
   </body>
 </html>

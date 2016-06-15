@@ -50,7 +50,7 @@ postmanControllers.controller('CreatePostmanForm', ['$scope', '$window',
     $scope.authorization = false;
     
     Authorization.get(function(data){
-     if(data.roles == 'ROLE_ADMIN'){
+     if(data.roles != 'ROLE_ADMIN'){
         $scope.authorization = true;
         
         $scope.submit = function () {
@@ -96,40 +96,6 @@ userControllers.controller('LoginUserForm', ['$scope', '$http', '$window', 'User
     $scope.submit = function () {
       User.login($scope.user, function(data, status, headers, config){
           $window.location.href = '#';
-      }, function(data, status, headers, config){
-        console.log(data);
-        $scope.errors = {};
-        
-        if(data.status == 400){
-          $scope.errors = data.data.message;
-        }
-      });
-    }
-  }
-]);
-
-userControllers.controller('RegisterUserForm', ['$scope', '$http', '$window', 'User', 
-  function ($scope, $http, $window, User) {
-    $scope.submit = function () {
-      User.register($scope.user, function(data, status, headers, config){
-          $window.location.href = '#/login';
-      }, function(data, status, headers, config){
-        console.log(data);
-        $scope.errors = {};
-        
-        if(data.status == 400){
-          $scope.errors = data.data.message;
-        }
-      });
-    }
-  }
-]);
-
-userControllers.controller('RegisterConfirmed', ['$scope', '$http', '$window', 'User', 
-  function ($scope, $http, $window, User) {
-    $scope.submit = function () {
-      User.register($scope.user, function(data, status, headers, config){
-          $window.location.href = '#/login';
       }, function(data, status, headers, config){
         console.log(data);
         $scope.errors = {};
