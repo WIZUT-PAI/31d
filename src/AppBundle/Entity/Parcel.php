@@ -35,6 +35,13 @@ class Parcel implements ParcelInterface
      * @ORM\Column(name="note", type="text")
      */
     private $note;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="parcel_hash", type="text")
+     */
+    private $parcelHash;
 
     /**
      * Get id
@@ -91,5 +98,16 @@ class Parcel implements ParcelInterface
     public function getNote()
     {
         return $this->note;
+    }
+    
+    public function setParcelHash($parcelHash)
+    {
+        $this->parcelHash = $parcelHash;
+        return $this;
+    }
+    
+	public function getParcelHash()
+    {
+        return $this->parcelHash;
     }
 }
