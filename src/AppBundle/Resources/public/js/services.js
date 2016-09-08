@@ -2,7 +2,7 @@
 
 /* Services */
 
-var mobilePostServices = angular.module('mobilePostServices', ['ngResource']);
+var mobilePostServices = angular.module('mobilepostServices', ['ngResource']);
 
 mobilePostServices.factory('Postman', ['$resource', 
 	function($resource){
